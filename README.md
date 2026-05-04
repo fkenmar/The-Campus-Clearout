@@ -1,70 +1,76 @@
-# Getting Started with Create React App
+# Campus Clearout
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Campus Clearout is a student marketplace web application built for University at Buffalo students.
+It enables verified .edu users to buy, sell, and trade items like textbooks, dorm supplies, and campus gear with built-in messaging, saved listings, and an authenticated storefront experience.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- UB student-only authentication with email verification
+- Browse and search campus marketplace listings
+- Save favorites for later
+- Create and manage listings and bundles
+- In-app messaging and unread message notifications
+- Secure protected routes for profile, settings, and inbox
+- Responsive React front-end with PHP-based API backend support
 
-### `npm start`
+## Tech Stack
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- React 19
+- React Router DOM 7
+- Create React App
+- PHP backend API endpoints under `src/api/`
+- Hash-based client routing for static hosting compatibility
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Project Structure
 
-### `npm test`
+- `src/App.js` — main routing, auth guard, unread message polling
+- `src/Components/` — core UI views and reusable components
+- `src/api/` — backend PHP endpoint scripts
+- `public/` — static HTML and manifest files
+- `build/` — production output after `npm run build`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Getting Started
 
-### `npm run build`
+### Requirements
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Node.js and npm
+- PHP backend available for the API routes used by the front-end
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Install dependencies
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+npm install
+```
 
-### `npm run eject`
+### Run development server
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```bash
+npm start
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Then open `http://localhost:3000`.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Build for production
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```bash
+npm run build
+```
 
-## Learn More
+The production-ready files will be generated in the `build/` folder.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Notes
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- The app authenticates users with local storage tokens and expects API calls to endpoints like `/CSE442/2026-Spring/cse-442s/api/*`.
+- Protected routes redirect unauthenticated users to the login/signup flow.
+- Unread message polling and notification sound are handled in `src/App.js`.
 
-### Code Splitting
+## Recommended Workflow
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+1. Start the front-end with `npm start`
+2. Ensure the PHP API backend is running and reachable
+3. Sign up or log in from the landing page
+4. Create listings, save favorites, and use the inbox for messaging
 
-### Analyzing the Bundle Size
+## License
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This repository does not include a license file. Add one if you want to open source the project.
