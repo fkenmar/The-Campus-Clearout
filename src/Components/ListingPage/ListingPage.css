@@ -1,0 +1,355 @@
+:root {
+  --dark-green: #009966;
+  --mint-green: #C4ECDE;
+  --black: #000000;
+  --white: #FFFFFF;
+}
+
+body { margin: 0; background-color: var(--mint-green); font-family: 'Inter', sans-serif; }
+
+/* ===== NAV ===== */
+.top-nav-bar { background-color: var(--dark-green); height: 120px; display: flex; align-items: center; justify-content: space-between; padding: 0 50px; position: relative; }
+.nav-left { flex: 1; }
+.nav-right { flex: 1; display: flex; justify-content: flex-end; align-items: center; }
+.brand-logo { height: 100px; width: auto; margin-top: 10px; }
+.pill-container { background: white; border-radius: 50px; display: flex; padding: 10px 35px; gap: 25px; flex-shrink: 0; }
+.pill-item { display: flex; flex-direction: column; align-items: center; color: var(--black); cursor: pointer; }
+
+.logout-btn {
+  background: white;
+  color: var(--dark-green);
+  border: 2px solid white;
+  padding: 10px 22px;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  font-family: 'Inter', sans-serif;
+}
+.logout-btn:hover { background: transparent; color: white; }
+
+/* ===== LAYOUT ===== */
+.listing-container { display: flex; padding: 40px 50px; gap: 60px; max-width: 1200px; margin: 0 auto; min-height: calc(100vh - 120px); align-items: flex-start; }
+.listing-image-section { flex: 0.8; display: flex; flex-direction: column; align-items: center; }
+
+.main-listing-image { 
+  width: 100%; 
+  max-width: 380px; 
+  aspect-ratio: 1 / 1; /* Forces a perfect square */
+  border-radius: 20px; 
+  box-shadow: 0 12px 30px rgba(0,0,0,0.15); 
+  object-fit: cover; /* Crops instead of stretching */
+  object-position: center; /* Keeps the subject centered */
+}
+
+.listing-image-placeholder {
+  width: 100%;
+  max-width: 380px;
+  aspect-ratio: 1/1;
+  background: #f0f0f0;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.listing-image-placeholder .material-symbols-outlined { font-size: 64px; color: #ccc; }
+
+.listing-details-section { flex: 1.2; display: flex; flex-direction: column; gap: 20px; padding-top: 40px; }
+.listing-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px; }
+.listing-title { font-size: 28px; margin: 0; color: #333; }
+.listing-price { font-size: 24px; font-weight: bold; margin: 5px 0 0 0; color: var(--dark-green); }
+.course-used-badge {
+  display: block;
+  background: white;
+  color: var(--dark-green);
+  border: 1.5px solid var(--dark-green);
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.3;
+  max-width: 260px;
+  overflow-wrap: anywhere;
+  text-align: right;
+  text-decoration: none;
+}
+.course-used-badge:hover { background: var(--dark-green); color: white; }
+.course-controls { display: flex; flex-direction: column; align-items: flex-end; gap: 8px; }
+.course-edit-row { display: flex; justify-content: flex-end; align-items: center; gap: 8px; flex-wrap: wrap; max-width: 360px; }
+.course-edit-select {
+  min-width: 210px;
+  max-width: 260px;
+  padding: 8px 12px;
+  border-radius: 20px;
+  border: 2px solid var(--dark-green);
+  background: white;
+  color: #333;
+  font-size: 14px;
+  font-family: 'Inter', sans-serif;
+  outline: none;
+}
+
+.action-btn { background-color: var(--dark-green); color: white; border: none; padding: 14px 28px; border-radius: 30px; font-weight: bold; font-size: 16px; cursor: pointer; width: fit-content; font-family: 'Inter', sans-serif; }
+.action-btn:hover { background-color: #007a52; }
+
+.price-display-row { display: flex; align-items: center; gap: 10px; }
+.edit-price-btn { display: flex; align-items: center; gap: 4px; background: transparent; border: 1.5px solid var(--dark-green); color: var(--dark-green); padding: 5px 12px; border-radius: 20px; font-size: 13px; font-weight: 600; cursor: pointer; font-family: 'Inter', sans-serif; }
+.edit-price-btn .material-symbols-outlined { font-size: 16px; }
+.edit-price-btn:hover { background: var(--dark-green); color: white; }
+
+.price-edit-row { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-top: 5px; }
+.price-edit-input {
+  width: 120px;
+  padding: 8px 14px;
+  border-radius: 20px;
+  border: 2px solid var(--dark-green);
+  font-size: 16px;
+  font-family: 'Inter', sans-serif;
+  outline: none;
+}
+.price-save-btn {
+  background: var(--dark-green);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+}
+.price-save-btn:hover { background: #007a52; }
+.price-cancel-btn {
+  background: white;
+  color: #888;
+  border: 1px solid #ddd;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+}
+.price-error { color: red; font-size: 13px; }
+
+.listing-error-box {
+  color: #8a1f1f;
+  background-color: #fde8e8;
+  border: 2px solid #e06b6b;
+  border-radius: 8px;
+  padding: 12px 14px;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.35;
+  margin-top: 8px;
+  text-align: left;
+  width: 100%;
+}
+
+.info-card { background: white; padding: 24px; border-radius: 18px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+.info-card h4 { margin: 0 0 15px 0; font-size: 18px; color: #333; }
+.description-text { line-height: 1.5; color: #444; margin: 0; }
+
+.seller-content { display: flex; align-items: center; justify-content: space-between; }
+.seller-profile { display: flex; align-items: center; gap: 12px; }
+
+.seller-avatar-img { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; }
+.seller-avatar-default {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--dark-green);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.view-profile-btn { background: var(--dark-green); color: white; border: none; padding: 8px 16px; border-radius: 20px; cursor: pointer; font-size: 14px; font-family: 'Inter', sans-serif; }
+.view-profile-btn:hover { background: #007a52; }
+
+.listing-tag-pill {
+  background: var(--mint-green);
+  color: var(--dark-green);
+  border: 1px solid var(--dark-green);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* Hidden mobile elements on desktop */
+.mobile-menu-trigger, .mobile-title-block, .mobile-action-row { display: none; }
+
+/* ===== MOBILE ===== */
+@media (max-width: 768px) {
+  .desktop-nav { display: none !important; }
+  .mobile-menu-trigger, .mobile-title-block, .mobile-action-row { display: block; }
+
+  .top-nav-bar { height: 80px; padding: 0 20px; }
+  .brand-logo { height: 60px; }
+  .mobile-menu-trigger span { color: white; font-size: 35px; cursor: pointer; }
+
+  .listing-container { flex-direction: column; padding: 20px; min-height: auto; align-items: center; gap: 20px; }
+  .listing-image-section, .listing-details-section { flex: 1; width: 100%; padding-top: 0; }
+
+  .mobile-title-block { width: 100%; margin-bottom: 15px; }
+  .mobile-title-block .course-used-badge { max-width: none; text-align: left; }
+  .mobile-title-block .course-controls { align-items: flex-start; margin-top: 8px; }
+  .mobile-title-block .course-edit-row { justify-content: flex-start; max-width: none; }
+  .mobile-title-block .course-edit-select { max-width: 100%; }
+  .mobile-price-row { display: flex; justify-content: space-between; align-items: center; }
+
+  .mobile-action-row { display: flex; gap: 10px; align-items: center; width: 100%; margin-bottom: 10px; }
+  .mobile-action-row .action-btn { flex: 1; font-size: 14px; padding: 12px 5px; }
+
+  .mobile-dropdown { position: absolute; top: 80px; right: 0; width: 200px; background: white; z-index: 10; box-shadow: -5px 5px 10px rgba(0,0,0,0.1); }
+  .dropdown-item { padding: 15px; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; color: black; font-weight: 500; cursor: pointer; }
+}
+
+.seller-rating {
+  font-size: 0.9rem;
+  color: #555;
+  margin-top: 2px;
+}
+
+.carousel-container {
+  position: relative;
+  width: 100%;
+  max-width: 500px;   /* or whatever size you want */
+  height: 400px;      /* fixed height */
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;   /* prevents overflow */
+  background: #f5f5f5; /* optional: prevents flashing */
+  border-radius: 8px; /* optional */
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.8);
+  border: none;
+  font-size: 2rem;
+  padding: 4px 10px;
+  cursor: pointer;
+  z-index: 10;
+  border-radius: 4px;
+}
+.carousel-btn.left { left: 10px; }
+.carousel-btn.right { right: 10px; }
+
+.carousel-btn:hover {
+  opacity: 1;
+}
+
+
+
+/* ADD THIS TO THE BOTTOM OF YOUR CSS FILE */
+
+.delete-listing-btn {
+  background-color: #dc2626; /* Destructive Red */
+  color: white;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 30px;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  width: fit-content;
+  font-family: 'Inter', sans-serif;
+  transition: background-color 0.2s;
+}
+
+.delete-listing-btn:hover {
+  background-color: #b91c1c;
+}
+
+.mobile-action-row .delete-listing-btn {
+  flex: 1;
+  font-size: 14px;
+  padding: 12px 5px;
+}
+
+
+
+/* =========================================================
+   CONFIRMATION MODAL STYLES
+   ========================================================= */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 5000;
+}
+
+.modal-box {
+  background: #ffffff;
+  padding: 25px;
+  width: 90%;
+  max-width: 420px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+  animation: fadeIn 0.2s ease;
+  text-align: center;
+}
+
+.modal-box h2 {
+  margin-top: 0;
+  font-size: 1.6rem;
+  color: #000000;
+}
+
+.modal-box p {
+  margin-bottom: 20px;
+  color: #555;
+  line-height: 1.5;
+}
+
+.modal-submit {
+  width: 100%;
+  padding: 12px;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  transition: opacity 0.2s;
+}
+
+.modal-submit:hover {
+  opacity: 0.9;
+}
+
+.modal-cancel {
+  width: 100%;
+  padding: 12px;
+  background: #dddddd;
+  color: #333333;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+}
+
+.modal-cancel:hover {
+  background: #cccccc;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+

@@ -1,0 +1,213 @@
+/* ===== NAV ===== */
+.top-nav-bar {
+  background-color: var(--dark-green, #009966);
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 50px;
+  box-sizing: border-box;
+  width: 100%;
+  position: relative;
+  z-index: 100;
+}
+
+.nav-left { flex: 1; }
+.nav-right { 
+  flex: 1; 
+  display: flex; 
+  justify-content: flex-end; 
+  align-items: center; 
+  gap: 20px; /* Space between Logout button and Profile Pic */
+}
+
+.brand-logo {
+  height: 100px;
+  width: auto;
+  margin-top: 10px;
+  filter: brightness(0) invert(1);
+}
+
+.pill-container {
+  background: white;
+  border-radius: 50px;
+  display: flex;
+  padding: 10px 35px;
+  gap: 25px;
+  flex-shrink: 0;
+}
+
+.pill-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--black, #000);
+  cursor: pointer;
+  padding: 5px 10px;
+  border-radius: 12px;
+  transition: color 0.2s;
+}
+
+.pill-item:hover, .pill-item.active-nav {
+  color: var(--dark-green, #009966);
+}
+
+.nav-mail-wrapper { position: relative; }
+.nav-badge {
+  position: absolute;
+  top: -5px;
+  right: 5px;
+  background: red;
+  color: white;
+  border-radius: 10px;
+  padding: 2px 6px;
+  font-size: 10px;
+  font-weight: bold;
+}
+
+.logout-btn {
+  background: white;
+  color: var(--dark-green, #009966);
+  border: 2px solid white;
+  padding: 10px 22px;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  font-family: 'Inter', sans-serif;
+}
+
+.logout-btn:hover {
+  background: transparent;
+  color: white;
+}
+
+/* Nav Profile Picture */
+.nav-profile-pic {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid white;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.nav-profile-pic:hover {
+  transform: scale(1.05);
+}
+
+.default-nav-avatar {
+  background-color: white;
+  color: var(--dark-green, #009966);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 22px;
+}
+
+/* ===== MOBILE OVERRIDES ===== */
+.mobile-menu-trigger { display: none; }
+.mobile-dropdown { 
+  position: absolute; 
+  top: 80px; 
+  right: 0; 
+  width: 200px; 
+  background: white; 
+  z-index: 999; 
+  box-shadow: -5px 5px 10px rgba(0,0,0,0.1); 
+}
+
+.dropdown-item { 
+  padding: 15px; 
+  border-bottom: 1px solid #eee; 
+  display: flex; 
+  justify-content: space-between; 
+  color: black; 
+  font-weight: 500; 
+  cursor: pointer; 
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 5000;
+}
+
+.modal-box {
+  background: #ffffff;
+  padding: 25px;
+  width: 90%;
+  max-width: 420px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+  animation: fadeIn 0.2s ease;
+  text-align: center;
+}
+
+.modal-box h2 {
+  margin-top: 0;
+  font-size: 1.6rem;
+  color: #000000;
+}
+
+.modal-box p {
+  margin-bottom: 20px;
+  color: #555;
+  line-height: 1.5;
+}
+
+.modal-submit {
+  width: 100%;
+  padding: 12px;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  transition: opacity 0.2s;
+}
+
+.modal-submit:hover {
+  opacity: 0.9;
+}
+
+.modal-cancel {
+  width: 100%;
+  padding: 12px;
+  background: #dddddd;
+  color: #333333;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+}
+
+.modal-cancel:hover {
+  background: #cccccc;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@media (max-width: 768px) {
+  .desktop-nav { display: none !important; }
+  .mobile-menu-trigger { display: block; }
+
+  .top-nav-bar { height: 80px; padding: 0 20px; }
+  .brand-logo { height: 60px; margin-top: 0; }
+  .mobile-menu-trigger span { color: white; font-size: 35px; cursor: pointer; }
+}

@@ -1,0 +1,250 @@
+/* Store Loading & Error States */
+.store-loading, .store-error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  font-family: 'Inter', sans-serif;
+  color: var(--dark-green);
+}
+
+/* Store Header */
+.store-header-container {
+  background: white;
+  padding: 40px 50px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.store-profile-section {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.store-avatar-large {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--mint-green);
+}
+
+.store-avatar-large.default-avatar {
+  background: var(--dark-green);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.store-info h1 {
+  margin: 0 0 10px 0;
+  color: #333;
+  font-size: 28px;
+}
+
+.store-rating-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--mint-green);
+  padding: 6px 14px;
+  border-radius: 30px;
+  width: fit-content;
+}
+
+.store-rating-badge .star-icon {
+  color: #f5a623;
+  font-size: 20px;
+  font-variation-settings: 'FILL' 1;
+}
+
+.rating-score {
+  font-weight: bold;
+  font-size: 16px;
+  color: var(--dark-green);
+}
+
+.rating-count {
+  font-size: 14px;
+  color: #666;
+}
+
+/* Layout */
+.store-content {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+.store-listings-section {
+  flex: 1;
+  min-width: 0;
+}
+
+.store-listings-section h2 {
+  margin: 0;
+  color: #333;
+}
+
+/* Reviews Sidebar */
+.store-reviews-section {
+  width: 350px;
+  min-width: 350px;
+  background: white;
+  border-radius: 20px;
+  padding: 25px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.store-reviews-section h2 {
+  margin: 0 0 20px 0;
+  color: #333;
+  font-size: 20px;
+  border-bottom: 2px solid var(--mint-green);
+  padding-bottom: 10px;
+}
+
+.reviews-feed {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-height: 800px;
+  overflow-y: auto;
+  padding-right: 10px;
+}
+
+/* Custom Scrollbar for Reviews */
+.reviews-feed::-webkit-scrollbar { width: 6px; }
+.reviews-feed::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 4px; }
+.reviews-feed::-webkit-scrollbar-thumb { background: #ccc; border-radius: 4px; }
+
+.review-card {
+  background: #fdfdfd;
+  border: 1px solid #eee;
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.review-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.review-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.review-avatar.default-avatar {
+  background: #ccc;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.review-meta {
+  display: flex;
+  flex-direction: column;
+}
+
+.reviewer-name {
+  font-weight: 600;
+  font-size: 14px;
+  color: #333;
+}
+
+.review-date {
+  font-size: 12px;
+  color: #888;
+}
+
+.review-stars {
+  display: flex;
+  gap: 2px;
+  margin-bottom: 8px;
+}
+
+.review-stars .material-symbols-outlined {
+  font-size: 16px;
+}
+
+.review-stars .filled {
+  color: #f5a623;
+  font-variation-settings: 'FILL' 1;
+}
+
+.review-stars .empty {
+  color: #e0e0e0;
+  font-variation-settings: 'FILL' 1;
+}
+
+.review-text {
+  margin: 0;
+  font-size: 14px;
+  color: #555;
+  line-height: 1.4;
+}
+
+.empty-state {
+  grid-column: 1 / -1;
+  text-align: center;
+  color: #888;
+  padding: 40px;
+  background: white;
+  border-radius: 16px;
+  font-weight: 500;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 1024px) {
+  .store-content {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .store-reviews-section {
+    width: 100%;
+    min-width: auto;
+    box-sizing: border-box;
+    order: -1; 
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .store-header-container {
+    padding: 30px 20px;
+  }
+  
+  .store-listings-section .search-toolbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+  
+  .store-listings-section .search-input-wrapper {
+    max-width: 100% !important;
+  }
+
+  /* Forces the cards to stretch all the way across the screen */
+  .store-listings-section .listings-grid {
+    grid-template-columns: 1fr; 
+  }
+
+  /* Shrinks the review scrollbox on phones so it doesn't take up the whole screen */
+  .reviews-feed {
+    max-height: 350px; 
+  }
+}

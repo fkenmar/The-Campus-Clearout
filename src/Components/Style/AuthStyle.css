@@ -1,0 +1,497 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+/* ---------------- DESIGN TOKENS (matches app-wide system) ---------------- */
+:root {
+  --dark-green: #009966;
+  --dark-green-hover: #007a52;
+  --mint-green: #C4ECDE;
+  --mint-tint: #D8F2E7;
+  --black: #000000;
+  --white: #FFFFFF;
+  --ink: #1a1a1a;
+  --ink-muted: #666;
+  --ink-subtle: #888;
+  --line: #e5e5e5;
+  --error: #d92d20;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* ---------------- PAGE ---------------- */
+.auth-container {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  padding: 3rem 1.25rem;
+  position: relative;
+  font-family: 'Inter', system-ui, sans-serif;
+  color: var(--ink);
+  background-color: var(--mint-green);
+  background-image:
+    radial-gradient(ellipse at 10% 0%, rgba(255, 255, 255, 0.55) 0%, transparent 55%),
+    radial-gradient(ellipse at 90% 100%, rgba(0, 153, 102, 0.08) 0%, transparent 60%);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
+}
+
+.auth-container > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* ---------------- BRAND (text only, no logo) ---------------- */
+.auth-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  position: relative;
+  z-index: 1;
+  animation: fadeDown 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.auth-brand-name {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(1.75rem, 5vw, 2.25rem);
+  color: var(--dark-green);
+  margin: 0;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.auth-brand-logo {
+  height: 120px;
+  width: auto;
+  max-width: 350px;
+  object-fit: contain;
+  display: block;
+}
+
+.auth-brand-tag {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8rem;
+  color: var(--dark-green);
+  opacity: 0.75;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+/* ---------------- CARD ---------------- */
+.auth-card,
+.auth-card2 {
+  background-color: var(--white);
+  border-radius: 24px;
+  padding: 2rem 2.25rem;
+  width: min(94%, 400px);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 1;
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.04),
+    0 12px 32px rgba(0, 80, 50, 0.10);
+  animation: fadeUp 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.08s both;
+}
+
+.auth-card2 {
+  width: min(94%, 440px);
+}
+
+/* ---------------- TITLE ---------------- */
+.auth-title {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(1.5rem, 4.5vw, 1.85rem);
+  color: var(--ink);
+  margin: 0 0 1.5rem 0;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+/* ---------------- FORM ---------------- */
+.auth-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---------------- LABEL ---------------- */
+.auth-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8rem;
+  color: var(--ink-muted);
+  margin-top: 1.4rem;
+  margin-bottom: 0.45rem;
+  font-weight: 600;
+}
+
+.auth-form > .auth-label:first-child {
+  margin-top: 0;
+}
+
+/* ---------------- NAME ROW (First + Last inline) ---------------- */
+.auth-name-row {
+  display: flex;
+  gap: 0.75rem;
+  width: 100%;
+  margin-top: 1.4rem;
+}
+
+.auth-form > .auth-name-row:first-child,
+.auth-title + .auth-name-row {
+  margin-top: 0;
+}
+
+.auth-name-field {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.auth-name-field > .auth-label {
+  margin-top: 0;
+}
+
+/* ---------------- INPUT (pill style matching app) ---------------- */
+.auth-input {
+  padding: 0.75rem 1.125rem;
+  font-size: 0.95rem;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  border: 1px solid var(--line);
+  border-radius: 30px;
+  background-color: var(--white);
+  color: var(--ink);
+  outline: none;
+  width: 100%;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.auth-input::placeholder {
+  color: var(--ink-subtle);
+  opacity: 1;
+}
+
+.auth-input:hover:not(:focus) {
+  border-color: #c9c9c9;
+}
+
+.auth-input:focus {
+  border-color: var(--dark-green);
+  box-shadow: 0 0 0 3px rgba(0, 153, 102, 0.12);
+}
+
+/* ---------------- PASSWORD TOGGLE ---------------- */
+.password-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.password-wrapper .auth-input {
+  padding-right: 64px;
+}
+
+.password-toggle {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--dark-green);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.18s ease;
+}
+
+.password-toggle:hover {
+  color: var(--dark-green-hover);
+}
+
+/* ---------------- BUTTON ---------------- */
+.auth-button {
+  margin-top: 1.5rem;
+  padding: 0.85rem 1.5rem;
+  font-size: 0.95rem;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  border-radius: 30px;
+  border: none;
+  background-color: var(--dark-green);
+  color: var(--white);
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+  width: 100%;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  box-shadow: 0 2px 8px rgba(0, 153, 102, 0.25);
+}
+
+.auth-button:hover {
+  background-color: var(--dark-green-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(0, 153, 102, 0.35);
+}
+
+.auth-button:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 4px rgba(0, 153, 102, 0.3);
+}
+
+/* ---------------- LINKS ---------------- */
+.auth-link,
+.login-link-button {
+  display: inline-block;
+  align-self: flex-start;
+  color: var(--dark-green);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  margin-top: 0.75rem;
+  padding: 0;
+  transition: color 0.18s ease;
+}
+
+.auth-link:hover,
+.login-link-button:hover {
+  color: var(--dark-green-hover);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* ---------------- ERROR ---------------- */
+.auth-error {
+  color: var(--error);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 500;
+  line-height: 1.45;
+  margin: 0.85rem 0 0;
+  padding: 0.6rem 0.9rem;
+  background-color: rgba(217, 45, 32, 0.06);
+  border-radius: 12px;
+}
+
+/* ---------------- SUCCESS ---------------- */
+.auth-success {
+  color: var(--dark-green-hover);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 500;
+  line-height: 1.45;
+  margin: 0.85rem 0 0;
+  padding: 0.6rem 0.9rem;
+  background-color: rgba(0, 153, 102, 0.08);
+  border-radius: 12px;
+}
+
+/* ---------------- DESCRIPTION (inside card) ---------------- */
+.auth-description {
+  font-family: 'Inter', sans-serif;
+  color: var(--ink-muted);
+  font-size: 0.85rem;
+  line-height: 1.5;
+  margin: 0 0 1rem 0;
+}
+
+/* ---------------- SUBTEXT (below card) ---------------- */
+.auth-subtext {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.82rem;
+  color: var(--ink-muted);
+  text-align: center;
+  max-width: min(94%, 420px);
+  line-height: 1.55;
+  margin: 0;
+  position: relative;
+  z-index: 1;
+  animation: fadeUp 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.16s both;
+}
+
+/* ---------------- TABS (pill-style, matches app's rounded aesthetic) ---------------- */
+.verify-tabs {
+  display: flex;
+  gap: 0.3rem;
+  padding: 0.3rem;
+  background-color: #f4f4f4;
+  border-radius: 30px;
+  margin-bottom: 1.25rem;
+}
+
+.tab-button {
+  flex: 1;
+  padding: 0.55rem 0;
+  background: transparent;
+  border: none;
+  font-size: 0.85rem;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  color: var(--ink-subtle);
+  cursor: pointer;
+  border-radius: 24px;
+  transition: color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tab-button:hover {
+  color: var(--ink);
+}
+
+.active-tab {
+  background-color: var(--white);
+  color: var(--dark-green);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.active-tab::after {
+  display: none;
+}
+
+/* ---------------- MODAL ---------------- */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  animation: fadeIn 0.18s ease-out;
+}
+
+.modal {
+  background: var(--white);
+  padding: 2rem 2.25rem;
+  border-radius: 20px;
+  max-width: 440px;
+  width: 90%;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+  text-align: left;
+  animation: popIn 0.22s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.modal-success {
+  border: 2px solid #56b881;
+}
+
+.modal-error {
+  border: 2px solid #e06b6b;
+}
+
+.modal h2 {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 1.25rem;
+  margin: 0 0 0.75rem 0;
+  color: var(--dark-green);
+  letter-spacing: -0.01em;
+}
+
+.modal-error h2 {
+  color: #8a1f1f;
+}
+
+.modal p {
+  font-family: 'Inter', sans-serif;
+  color: var(--ink-muted);
+  font-size: 0.9rem;
+  line-height: 1.55;
+  margin: 0 0 1.5rem;
+}
+
+.modal-button {
+  background: var(--dark-green);
+  color: var(--white);
+  padding: 0.7rem 1.5rem;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 0.88rem;
+  transition: background-color 0.2s;
+  box-shadow: 0 2px 8px rgba(0, 153, 102, 0.25);
+}
+
+.modal-error .modal-button {
+  background: #8a1f1f;
+}
+
+.modal-button:hover {
+  background: var(--dark-green-hover);
+}
+
+/* ---------------- KEYFRAMES ---------------- */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes popIn {
+  from { opacity: 0; transform: scale(0.96); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* ---------------- RESPONSIVE ---------------- */
+@media (max-width: 480px) {
+  .auth-container {
+    padding: 2rem 1rem;
+  }
+  .auth-card,
+  .auth-card2 {
+    padding: 1.75rem 1.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .auth-card,
+  .auth-card2 {
+    padding: 2.25rem 2.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .auth-brand,
+  .auth-card,
+  .auth-card2,
+  .auth-subtext,
+  .modal-backdrop,
+  .modal {
+    animation: none;
+  }
+  .auth-button,
+  .tab-button,
+  .auth-input,
+  .auth-link,
+  .login-link-button,
+  .password-toggle {
+    transition: none;
+  }
+}

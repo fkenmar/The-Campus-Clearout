@@ -1,0 +1,13 @@
+.greetings-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #A9D1C3;
+}
+
+.greetings-title {
+  font-family: 'Karantina', cursive;
+  font-size: 64px;
+  color: #0E8F63;
+}

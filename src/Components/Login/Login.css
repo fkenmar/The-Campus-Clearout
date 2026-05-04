@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Karantina:wght@400;700&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Karantina', cursive;
+}
+
+.login-container {
+  background-color: #A9CFC4;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* Top-left logo */
+.login-logo {
+  width: 140px;
+  position: absolute;
+  left: 40px;
+  top: 40px;
+}
+
+/* Main title */
+.title {
+  font-size: 70px;
+  color: #0B8A5F;
+  margin-bottom: 20px;
+}
+
+/* Card */
+.login-card {
+  background-color: #B5B5B5;
+  padding: 50px;
+  width: 420px;
+  border-radius: 30px;
+  text-align: center;
+}
+
+/* Login heading */
+.login-heading {
+  font-size: 65px;
+  color: #0B8A5F;
+  margin-bottom: 25px;
+}
+
+/* Inputs */
+.login-input {
+  width: 100%;
+  padding: 18px;
+  margin: 12px 0;
+  border-radius: 20px;
+  border: none;
+  font-size: 26px;
+  font-family: 'Karantina', cursive;
+  background-color: #D9D9D9;
+  outline: none;
+}
+
+/* Signup link */
+.signup-link {
+  display: block;
+  margin: 10px 0 20px 0;
+  color: #0B8A5F;
+  font-size: 22px;
+  text-decoration: none;
+}
+
+.signup-link:hover {
+  text-decoration: underline;
+}
+
+/* Forgot Password link */
+.forgotpassword-link {
+  display: block;
+  margin: 10px 0 20px 0;
+  color: #0B8A5F;
+  font-size: 22px;
+  text-decoration: none;
+}
+
+.forgotpassword-link:hover {
+  text-decoration: underline;
+}
+
+/* Enter button */
+.login-button {
+  padding: 14px 50px;
+  font-size: 32px;
+  border-radius: 20px;
+  border: none;
+  background-color: #BDE5D7;
+  color: #0B8A5F;
+  font-family: 'Karantina', cursive;
+  cursor: pointer;
+}
+
+.login-button:hover {
+  background-color: #a8d8c8;
+}
+
+/* Error message styling */
+.error-text {
+  color: red;
+  font-size: 44px; /* 2x larger than your ~22px–26px text */
+  margin-top: 20px;
+  font-weight: bold;
+  text-align: center;
+}

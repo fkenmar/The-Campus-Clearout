@@ -1,0 +1,106 @@
+/* Import Karantina font */
+@import url('https://fonts.googleapis.com/css2?family=Karantina:wght@400;700&display=swap');
+
+/* Page background */
+.signup-container {
+    min-height: 100vh;
+    background-color: #A9D1C3;   /* light mint background */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Karantina', cursive;
+}
+
+/* Header */
+.signup-header {
+    width: 100%;
+    height: 100px;
+    background-color: #0E8F63;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Logo image inside header */
+.header-logo {
+    height: 60px;
+    width: auto;
+}
+
+.signup-content {
+    flex: 1;
+    width: 480px;
+    padding: 40px 40px;
+    background-color: #B3B3B3;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    transform: scale(0.75);   /* 75% size */
+}
+
+
+/* Sign-Up title */
+.signup-content h2 {
+    font-size: 75px;             /* reduced from 90px */
+    color: #0E8F63;
+    margin-bottom: 30px;         /* slightly reduced */
+    letter-spacing: 2px;
+}
+
+/* Form layout */
+.signup-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+/* Input fields */
+.signup-input {
+    padding: 20px;
+    font-size: 32px;
+    border-radius: 20px;
+    border: none;
+    background-color: #E6E6E6;
+    font-family: 'Karantina', cursive;
+    color: #0E8F63;
+}
+
+.signup-input::placeholder {
+    color: #0E8F63;
+}
+
+/* Enter button */
+.signup-button {
+    margin-top: 20px;            /* slightly reduced */
+    padding: 16px;
+    font-size: 34px;
+    border-radius: 12px;
+    border: none;
+    background-color: #A9D1C3;
+    color: #0E8F63;
+    font-family: 'Karantina', cursive;
+    cursor: pointer;
+    width: 180px;
+    align-self: center;
+    transition: 0.2s ease;
+}
+
+.signup-button:hover {
+    transform: scale(1.05);
+}
+
+.error-message {
+  color: red;
+  margin-bottom: 0px;
+  font-size: 2.7rem;
+}
+
+.login-link-button {
+  color: #009966;     /* text color */
+  padding: 20px;     /* doubled size */
+  font-size: 24px;   /* doubled text size */
+}
